@@ -1,0 +1,28 @@
+<form [formGroup]="configForm" (ngSubmit)="onSubmit()">
+    <label>Nombre d'utilisateurs : </label>
+    <input formControlName="userCount" type="number" min="1" required>
+    <br>
+    <label>Nombre de groupes : </label>
+    <input formControlName="groupCount" type="number" min="1" required>
+    <br>
+    <label>Configuration du dernier groupe : </label>
+    <select formControlName="lastGroupConfig">
+      <option value="LAST_MIN">LAST_MIN</option>
+      <option value="LAST_MAX">LAST_MAX</option>
+    </select>
+    <br>
+    <button type="submit" [disabled]="!configForm.valid">Configurer</button>
+  </form>
+
+  <form [formGroup]="configForm" (ngSubmit)="onSubmit()">
+    <!-- Champs du formulaire -->
+  </form>
+  
+  <div *ngIf="groups.length > 0">
+    <h3>Groupes créés :</h3>
+    <div *ngFor="let group of groups">
+      <p>Groupe {{ group.id }} : Taille prévue {{ group.size }} </p>
+    </div>
+  </div>
+  
+  
