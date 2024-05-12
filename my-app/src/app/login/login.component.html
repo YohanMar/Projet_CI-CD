@@ -1,0 +1,10 @@
+<div class="container">
+    <h2>Connexion</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="login">Login</label>
+        <input type="text" id="login" formControlName="login" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Se connecter</button>
+    </form>
+  </div>
