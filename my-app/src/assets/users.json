@@ -1,0 +1,21 @@
+[
+  {
+    "id": 0,
+    "name": "admin"
+  },
+  {
+    "id": 1,
+    "name": "John Doe",
+    "groupId": null
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "groupId": null
+  },
+  {
+    "id": 3,
+    "name": "Oui",
+    "groupId": null
+  }
+]
