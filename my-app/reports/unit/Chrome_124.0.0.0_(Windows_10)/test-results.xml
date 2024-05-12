@@ -1,22 +1,12 @@
 <?xml version="1.0"?>
-<testsuite name="Chrome 124.0.0.0 (Windows 10)" package="" timestamp="2024-05-12T17:16:12" id="0" hostname="PC_ECOLE" tests="14" errors="0" failures="0" time="0.22">
+<testsuite name="Chrome 124.0.0.0 (Windows 10)" package="" timestamp="2024-05-12T23:38:48" id="0" hostname="PC_ECOLE" tests="4" errors="0" failures="0" time="0.056">
   <properties>
     <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"/>
   </properties>
-  <testcase name="GroupService should have a total user size in groups equal to the initial user count" time="0.032" classname="Chrome_124_0_0_0_(Windows_10).GroupService"/>
-  <testcase name="GroupService should create groups with LAST_MAX config" time="0.004" classname="Chrome_124_0_0_0_(Windows_10).GroupService"/>
-  <testcase name="GroupService should create groups with LAST_MIN config" time="0.004" classname="Chrome_124_0_0_0_(Windows_10).GroupService"/>
-  <testcase name="GroupService should be created" time="0.003" classname="Chrome_124_0_0_0_(Windows_10).GroupService"/>
-  <testcase name="GroupService should create groups with equal size when user count is a multiple of group count" time="0.004" classname="Chrome_124_0_0_0_(Windows_10).GroupService"/>
-  <testcase name="AdminConfigComponent should create" time="0.087" classname="Chrome_124_0_0_0_(Windows_10).AdminConfigComponent"/>
-  <testcase name="AdminConfigComponent Le formulaire doit être invalide si userCount est inférieur à 1" time="0.013" classname="Chrome_124_0_0_0_(Windows_10).AdminConfigComponent"/>
-  <testcase name="AdminConfigComponent Le formulaire doit être invalide si groupCount est inférieur à 1" time="0.01" classname="Chrome_124_0_0_0_(Windows_10).AdminConfigComponent"/>
-  <testcase name="AdminConfigComponent Le formulaire doit être invalide si groupCount est null" time="0.01" classname="Chrome_124_0_0_0_(Windows_10).AdminConfigComponent"/>
-  <testcase name="AdminConfigComponent Ne doit pas appeler getGroup ou createGroup si le formulaire est invalid" time="0.011" classname="Chrome_124_0_0_0_(Windows_10).AdminConfigComponent"/>
-  <testcase name="AdminConfigComponent Le formulaire doit être valide si tout es ok" time="0.01" classname="Chrome_124_0_0_0_(Windows_10).AdminConfigComponent"/>
-  <testcase name="AdminConfigComponent Doit pouvoir appeler getGroup et createGroup quand on valide" time="0.009" classname="Chrome_124_0_0_0_(Windows_10).AdminConfigComponent"/>
-  <testcase name="AdminConfigComponent Le formulaire doit fonctionner avec les 3 éléments" time="0.01" classname="Chrome_124_0_0_0_(Windows_10).AdminConfigComponent"/>
-  <testcase name="AdminConfigComponent Le formulaire doit être invalide si userCount est null" time="0.013" classname="Chrome_124_0_0_0_(Windows_10).AdminConfigComponent"/>
+  <testcase name="UserService should be created" time="0.032" classname="Chrome_124_0_0_0_(Windows_10).UserService"/>
+  <testcase name="UserService should return a user by name" time="0.014" classname="Chrome_124_0_0_0_(Windows_10).UserService"/>
+  <testcase name="UserService should return an array of users" time="0.006" classname="Chrome_124_0_0_0_(Windows_10).UserService"/>
+  <testcase name="UserService should return undefined if user is not found" time="0.004" classname="Chrome_124_0_0_0_(Windows_10).UserService"/>
   <system-out>
     <![CDATA[
 ]]>
