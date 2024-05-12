@@ -1,0 +1,13 @@
+[
+    {
+      "id": 1,
+      "userIds": [],
+      "maxSize": 5
+    },
+    {
+      "id": 2,
+      "userIds": [],
+      "maxSize": 5
+    }
+    // ...
+  ]
