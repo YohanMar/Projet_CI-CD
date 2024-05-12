@@ -8,6 +8,7 @@
     "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test:ci": "ng test --code-coverage --watch=false --browsers=ChromeHeadless",
     "serve:ssr:my-app": "node dist/my-app/server/server.mjs"
   },
   "private": true,
