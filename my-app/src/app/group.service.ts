@@ -50,5 +50,4 @@ export class GroupService {
   getGroups(): any[] {
     return this.groups;
   }
-  // Ajoutez d'autres méthodes pour gérer les utilisateurs et les groupes
 }
