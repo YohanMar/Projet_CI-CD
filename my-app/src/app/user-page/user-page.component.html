@@ -1,1 +1,32 @@
-<p>user-page works!</p>
+<div class="container">
+    <h2 class="title">Créer un nouveau groupe</h2>
+    <form (submit)="createGroup()" class="form">
+      <button type="submit" class="btn btn-primary">Créer un groupe et générer un lien d'invitation</button>
+    </form>
+  
+    <h2 class="title">Groupes</h2>
+    <ul class="group-list">
+      <li *ngFor="let group of groups" class="group-item">
+        <span class="group-name">{{ group.name }}:</span>
+        <a class="invitation-link" href="{{ group.invitationLink }}">{{ group.invitationLink }}</a>
+        <ng-container *ngIf="group.userIds.length > 0">
+          <ul class="user-list">
+            <li *ngFor="let userId of group.userIds" class="user-item">
+              {{ getUsername(userId) }}
+            </li>
+          </ul>
+        </ng-container>
+      </li>
+    </ul>
+  
+    <h2 class="title">Utilisateurs sans groupe</h2>
+    <ul class="user-list">
+      <li *ngFor="let user of usersWithoutGroup" class="user-item">
+        <span class="user-name">{{ user.name }}</span>
+        <button *ngFor="let group of groups" (click)="acceptInvitation(user.id, group.id)" class="btn btn-secondary">
+          {{ group.name }}
+        </button>
+      </li>
+    </ul>
+  </div>
+  

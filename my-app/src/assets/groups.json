@@ -1,12 +1,18 @@
 [
-    {
-      "id": 1,
-      "userIds": [],
-      "maxSize": 5
-    },
-    {
-      "id": 2,
-      "userIds": [],
-      "maxSize": 5
-    }
-  ]
+  {
+    "id": 1,
+    "name": "Groupe 1",
+    "userIds": [],
+    "maxSize": 5,
+    "invitationLink": "",
+    "currentSize": 0
+  },
+  {
+    "id": 2,
+    "name": "Groupe 2",
+    "userIds": [],
+    "maxSize": 5,
+    "invitationLink": "",
+    "currentSize": 0
+  }
+]

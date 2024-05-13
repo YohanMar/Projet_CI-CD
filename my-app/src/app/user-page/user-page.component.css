@@ -1,0 +1,80 @@
+/* Styles pour les titres */
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Styles pour le formulaire de création de groupe */
+  form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  
+  button[type="submit"] {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+  
+  /* Styles pour la liste des groupes */
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    margin: 10px 0;
+  }
+  
+  li > ul {
+    margin-left: 20px;
+  }
+  
+  /* Styles pour les liens d'invitation */
+  .invitation-link {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .invitation-link:hover {
+    text-decoration: none;
+  }
+  
+  /* Styles pour les utilisateurs sans groupe */
+  h2:last-of-type {
+    margin-top: 60px;
+  }
+  
+  button[type="button"] {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  button[type="button"]:hover {
+    background-color: #0056b3;
+  }
+  
