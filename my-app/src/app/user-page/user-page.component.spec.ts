@@ -15,20 +15,23 @@ describe('UserPageComponent', () => {
 
     fixture = TestBed.createComponent(UserPageComponent);
     component = fixture.componentInstance;
+
+    // Affecte une valeur fixe à component.config.maxGroups
+    component.config = { maxGroups: 5, groupSize: 4 };
+
+    // Crée un utilisateur et un groupe factices pour le test
+    const user = { id: 1, name: 'John Doe', groupId: null };
+    const group = { id: 1, name: 'Group 1', userIds: [], maxSize: 4, invitationLink: '', currentSize: 0 };
+
+    component.users = [user];
+    component.groups = [group];
+
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  // it('should load users and groups', () => {
-  //   const users = component.users;
-  //   const groups = component.groups;
-
-  //   expect(users.length).toBeGreaterThan(0);
-  //   expect(groups.length).toBeGreaterThan(0);
-  // });
 
   it('should generate an invitation link', () => {
     const invitationLink = component.generateInvitationLink();
@@ -46,15 +49,31 @@ describe('UserPageComponent', () => {
     expect(component.groups.length).toBe(initialGroupsLength + 1);
   });
 
-  // it('should accept an invitation', () => {
-  //   const userWithoutGroup = component.usersWithoutGroup[0];
-  //   const group = component.groups[0];
+  it('should not create a new group if maxGroups is reached', () => {
+    const initialGroupsLength = component.groups.length;
+    const maxGroups = component.config.maxGroups;
 
-  //   component.acceptInvitation(userWithoutGroup.id, group.id);
-  //   fixture.detectChanges();
+    for (let i = initialGroupsLength; i < maxGroups; i++) {
+      component.createGroup();
+    }
 
-  //   expect(userWithoutGroup.groupId).toEqual(group.id);
-  //   expect(group.userIds.includes(userWithoutGroup.id)).toBeTrue();
-  //   expect(component.usersWithoutGroup.includes(userWithoutGroup)).toBeFalse();
-  // });
+    component.createGroup();
+    fixture.detectChanges();
+
+    expect(component.groups.length).toBe(maxGroups);
+  });
+
+  it('should not accept an invitation if group is full', () => {
+    const userWithoutGroup = { id: 1, name: 'John Doe', groupId: null };
+    const group = { id: 1, name: 'Group 1', userIds: [2, 3, 4, 5], maxSize: 4, invitationLink: '', currentSize: 4 };
+  
+    component.acceptInvitation(userWithoutGroup.id, group.id);
+    fixture.detectChanges();
+  
+    fixture.whenStable().then(() => {
+      expect(userWithoutGroup.groupId).toBeNull();
+      expect(group.userIds.includes(userWithoutGroup.id)).toBeFalse();
+      expect(component.usersWithoutGroup.includes(userWithoutGroup)).toBeTrue();
+    });
+  });
 });

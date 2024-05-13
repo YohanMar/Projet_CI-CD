@@ -11,6 +11,7 @@ export class UserPageComponent implements OnInit {
   users: any[] = [];
   usersWithoutGroup: any[] = [];
   groups: any[] = [];
+  config: any = {};
 
   constructor(private http: HttpClient) { }
 
@@ -23,6 +24,11 @@ export class UserPageComponent implements OnInit {
     this.http.get<any[]>('assets/groups.json').subscribe(groups => {
       this.groups = groups;
     });
+
+    // Charge la configuration à partir du fichier JSON
+    this.http.get('assets/configGroups.json').subscribe(config => {
+      this.config = config;
+    });
   }
 
   generateInvitationLink() {
@@ -30,12 +36,17 @@ export class UserPageComponent implements OnInit {
   }
 
   createGroup() {
+    // Vérifie si le nombre maximum de groupes a été atteint
+    if (this.groups.length >= this.config.maxGroups) {
+      return;
+    }
+
     const newGroupName = `Groupe ${this.groups.length + 1}`;
     const newGroup = {
       id: this.groups.length + 1,
       name: newGroupName,
       userIds: [],
-      maxSize: 5,
+      maxSize: this.config.groupSize,
       invitationLink: this.generateInvitationLink(),
       currentSize: 0
     };
@@ -50,6 +61,12 @@ export class UserPageComponent implements OnInit {
     const user = this.users.find(user => user.id === userId);
     const group = this.groups.find(group => group.id === groupId);
   
+    // Vérifie si le groupe a atteint sa taille maximale autorisée
+    if (group.userIds.length >= this.config.groupSize) {
+      console.log(`Le groupe ${group.name} a atteint sa taille maximale autorisée.`);
+      return;
+    }
+  
     if (user && group && !group.userIds.includes(userId)) {
       user.groupId = groupId;
       group.userIds.push(userId);
@@ -63,11 +80,11 @@ export class UserPageComponent implements OnInit {
       this.usersWithoutGroup = this.users.filter(user => user.groupId === null);
     }
   }
+  
+  
 
   getUsername(userId: number): string {
     const user = this.users.find(user => user.id === userId);
     return user ? user.name : '';
   }
-  
-
 }

@@ -8,6 +8,13 @@ export class GroupService {
   private users: any[] = [];
 
   constructor() { }
+  
+  getGroupConfigs(): any[] {
+    return this.groups.map(group => ({
+      id: group.id,
+      size: group.maxSize
+    }));
+  }
 
   createGroups(userCount: number, groupCount: number, lastGroupConfig: string) {
     this.groups = [];

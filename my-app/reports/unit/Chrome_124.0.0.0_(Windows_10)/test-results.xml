@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
-<testsuite name="Chrome 124.0.0.0 (Windows 10)" package="" timestamp="2024-05-13T01:56:08" id="0" hostname="PC_ECOLE" tests="3" errors="0" failures="0" time="0.057">
+<testsuite name="Chrome 124.0.0.0 (Windows 10)" package="" timestamp="2024-05-13T03:06:32" id="0" hostname="PC_ECOLE" tests="4" errors="0" failures="0" time="0.009">
   <properties>
     <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"/>
   </properties>
-  <testcase name="UserPageComponent should create" time="0.038" classname="Chrome_124_0_0_0_(Windows_10).UserPageComponent"/>
-  <testcase name="UserPageComponent should generate an invitation link" time="0.008" classname="Chrome_124_0_0_0_(Windows_10).UserPageComponent"/>
-  <testcase name="UserPageComponent should create a new group" time="0.011" classname="Chrome_124_0_0_0_(Windows_10).UserPageComponent"/>
+  <testcase name="UserService should return undefined if user is not found" time="0.005" classname="Chrome_124_0_0_0_(Windows_10).UserService"/>
+  <testcase name="UserService should return a user by name" time="0.002" classname="Chrome_124_0_0_0_(Windows_10).UserService"/>
+  <testcase name="UserService should return an array of users" time="0.001" classname="Chrome_124_0_0_0_(Windows_10).UserService"/>
+  <testcase name="UserService should be created" time="0.001" classname="Chrome_124_0_0_0_(Windows_10).UserService"/>
   <system-out>
     <![CDATA[
 ]]>

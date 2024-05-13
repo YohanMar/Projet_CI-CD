@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GroupService } from '../group.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin-config',
@@ -11,7 +12,7 @@ export class AdminConfigComponent implements OnInit {
   configForm: FormGroup = new FormGroup({});
   groups: any[] = [];
 
-  constructor(private fb: FormBuilder, private groupService: GroupService) { }
+  constructor(private fb: FormBuilder, private groupService: GroupService, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.configForm = this.fb.group({
@@ -29,6 +30,10 @@ export class AdminConfigComponent implements OnInit {
 
       this.groupService.createGroups(userCount, groupCount, lastGroupConfig);
       this.groups = this.groupService.getGroups();
+
+      // Génère le fichier configGroups.json
+      const groupConfigs = this.groupService.getGroupConfigs();
+      this.http.put('assets/configGroups.json', groupConfigs).subscribe();
     }
   }
 }
